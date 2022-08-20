@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,6 +14,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Flutter is Fun!'),
           backgroundColor: Colors.green,
+        ),
+        body: const Center(
+          child: Padding(
+            child: Text('Hello World 🌎'),
+            padding: EdgeInsets.all(10),
+          ),
         ),
       ),
     );
