@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -16,28 +18,21 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter is Fun!'),
           backgroundColor: Colors.green,
         ),
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-          addAutomaticKeepAlives: false,
-          children: [
-            Container(
-              color: Colors.red,
+        body: ListView.builder(
+          itemBuilder: (_, index) {
+            return Container(
+              color: randomColor(),
               width: 500,
               height: 500,
-            ),
-            Container(
-              color: Colors.green,
-              width: 500,
-              height: 500,
-            ),
-            Container(
-              color: Colors.amber,
-              width: 500,
-              height: 500,
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
+  }
+  
+  randomColor() {
+    var rand = Random();
+    return Color.fromARGB(255, rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
   }
 }
