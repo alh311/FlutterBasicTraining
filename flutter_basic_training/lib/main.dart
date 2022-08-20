@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,28 +16,26 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter is Fun!'),
           backgroundColor: Colors.green,
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print("Add Pressed");
-          },
-          child: const Icon(Icons.add),
-        ),
-        bottomNavigationBar: BottomNavigationBar(items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-        ]),
-        drawer: const Drawer(
-          child: Text('Yo!'),
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          addAutomaticKeepAlives: false,
+          children: [
+            Container(
+              color: Colors.red,
+              width: 500,
+              height: 500,
+            ),
+            Container(
+              color: Colors.green,
+              width: 500,
+              height: 500,
+            ),
+            Container(
+              color: Colors.amber,
+              width: 500,
+              height: 500,
+            ),
+          ],
         ),
       ),
     );
